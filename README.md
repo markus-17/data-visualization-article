@@ -141,3 +141,28 @@ plt.errorbar(x, y, yerr=dy, fmt='.k')
 
 # Contour plots
 
+Sometimes it is useful to display three-dimensional data in two dimensions using contours or color-coded regions. There are three Matplotlib functions that can be helpful for this task: **plt.contour** for contour plots, **plt.contourf** for filled contour plots, and **plt.imshow** for showing images.
+
+In the following example we will use **plt.contour** to plot a function of two variables. **plt.contour** takes 3 arguments: a grid of **x** values, a grid of **y** values, and a grid of **z** values. The **x** and **y** values represent positions on the plot, and the **z** values will be represented by the contour levels. The most straightforward way to prepare such data is to use the **np.meshgrid** function, which builds two-dimensional grids from one-dimensional arrays. We will use the RdGy (short for Red-Gray) colormap.
+
+```py
+plt.style.use('seaborn-white')
+
+def f(x, y):
+    return np.sin(x) ** 10 + np.cos(10 + y * x) * np.cos(x)
+
+x = np.linspace(0, 5, 50)
+y = np.linspace(0, 5, 40)
+
+X, Y = np.meshgrid(x, y)
+Z = f(X,Y)
+
+plt.figure(dpi=150)
+plt.contour(X, Y, Z, 20, cmap='RdGy')
+plt.colorbar()
+```
+
+![image6](./images/image6.png)
+
+# Histograms, Binning and Density
+
