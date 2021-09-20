@@ -5,7 +5,7 @@
 * How to make simple **scatter** plots?
 * Error bars
 * Contour plots
-* Histograms, Binning and Density
+* Histograms
 * How to use **seaborn** to make better looking plots?
 
 
@@ -164,5 +164,44 @@ plt.colorbar()
 
 ![image6](./images/image6.png)
 
-# Histograms, Binning and Density
+# Histograms
+
+A simple histogram can be a great first step in understanding a dataset. We can use the **hist()** function to create a simple histogram in just one line. The **hist()** function has many options to tune both the calculation and the display. 
+
+In the following example we will plot multiple histograms. 
+
+```py
+np.random.seed(0)
+x1 = np.random.normal(0, 0.8, 1000)
+x2 = np.random.normal(-2, 1, 1000)
+x3 = np.random.normal(4, 1, 1000)
+
+plt.figure(dpi=150)
+plt.hist(x1, alpha=0.3, bins=40)
+plt.hist(x2, alpha=0.3, bins=40)
+plt.hist(x3, alpha=0.3, bins=40)
+```
+
+![image7](./images/image7.png)
+
+If the **bins** parameter is an integer, it defines the number of equal-width bins in the range. 
+
+Just as we create histograms in one dimension by dividing the number line into bins, we can also create histograms in two dimensions by dividing points among two-dimensional bins. This is illustrated in the following example.
+
+```py
+mean = [0, 0]
+cov = [[1, 1], [1, 2]]
+
+np.random.seed(0)
+x, y = np.random.multivariate_normal(mean, cov, 10000).T
+
+plt.figure(dpi=150)
+plt.hist2d(x, y, bins=30, cmap='Blues')
+cb = plt.colorbar()
+cb.set_label('counts in bin')
+```
+
+![image8](./images/image8.png)
+
+# How to use seaborn to make better looking plots?
 
