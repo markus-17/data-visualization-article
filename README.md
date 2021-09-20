@@ -118,3 +118,26 @@ Aside from the different features available in **plt.plot** and **plt.scatter**,
 
 # Error bars
 
+For any scientific measurement, accurate accounting for errors is nearly as important, if not more important, than accurate reporting of the number itself.
+
+In visualization of data and results, showing errors effectively can make a plot convey much more complete information.
+
+The following example shows a basic **errorbar** plot. The **fmt** is a format code controlling the appearance of lines and points. It has the same syntax as the shorthand used in **plt.plot**.
+
+```py
+number_of_points = 70
+
+x = np.linspace(0, 10, number_of_points) 
+
+dy=0.25
+np.random.seed(17)
+y = np.sin(x) + dy * np.random.randn(number_of_points)
+
+plt.figure(dpi=150)
+plt.errorbar(x, y, yerr=dy, fmt='.k')
+```
+
+![image5](./images/image5.png)
+
+# Contour plots
+
