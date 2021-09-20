@@ -92,3 +92,29 @@ plt.legend()
 
 # How to make simple scatter plots?
 
+We can both use **plt.plot** and **plt.scatter** to create scatter plots.
+
+The primary difference of **plt.scatter** from **plt.plot** is that it can be used to create scatter plots where the properties of each individual point (size, face color, edge color, etc.) can be individually controlled or mapped to data.
+
+In the following example we create a scatter plot with points of many colors and sizes. In order to better see the results, we will also use the **alpha** argument to adjust the transparency level. The color argument is automatically mapped to a color scale shown by the **colorbar()** command, and the size argument is given in pixels. In this way, the color and size of points are used to convey information in the visualization, in order to illustrate multidimensional data.
+
+```py
+rng = np.random.RandomState(0)
+x = rng.randn(100)
+y = rng.randn(100)
+colors = rng.rand(100)
+sizes = 1000 * rng.rand(100)
+
+plt.figure(dpi=150)
+plt.xlim([-3, 3])
+plt.ylim([-3, 3])
+plt.scatter(x, y, c=colors, s=sizes, alpha=0.3, cmap='viridis')
+plt.colorbar()
+```
+
+![image4](./images/image4.png)
+
+Aside from the different features available in **plt.plot** and **plt.scatter**, why might you choose to use one over the other? While it doesn’t matter as much for small amounts of data, as datasets get larger than a few thousand points, **plt.plot** can be noticeably more efficient than **plt.scatter**. The reason is that **plt.scatter** has the capability to render a different size and/or color for each point, so the renderer must do the extra work of constructing each point individually. In **plt.plot**, on the other hand, the points are always essentially clones of each other, so the work of determining the appearance of the points is done only once for the entire set of data. For large datasets, the difference between these two can lead to vastly different performance, and for this reason, **plt.plot** should be preferred over **plt.scatter** for large datasets.
+
+# Error bars
+
