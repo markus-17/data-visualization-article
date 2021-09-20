@@ -6,7 +6,7 @@
 * Error bars
 * Contour plots
 * Histograms
-* How to use **seaborn** to make better looking plots?
+* Why you might also want to learn **seaborn**
 
 
 # What is matplotlib?
@@ -203,5 +203,8 @@ cb.set_label('counts in bin')
 
 ![image8](./images/image8.png)
 
-# How to use seaborn to make better looking plots?
+# Why you might also want to learn seaborn
 
+**Matplotlib** has proven to be an incredibly useful and popular visualization tool, but even avid users will admit it often leaves much to be desired. An answer to this problem is **Seaborn**. **Seaborn** provides an API on top of **Matplotlib** that offers sane choices for plot style and color defaults, defines simple high-level functions for common statistical plot types, and integrates with the functionality provided by Pandas DataFrames.
+
+**Seaborn** also provides straightforward ways to make violinplots, boxplots and others. 
