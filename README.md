@@ -62,3 +62,33 @@ ax[1].plot(x, np.cos(x))
 For more simple plots, the choice of which style to use is largely a matter of preference, but the object-oriented approach can become a necessity as plots become more complicated.
 
 # How to make simple line plots?
+
+Perhaps the simplest of all plots is the visualization of a single function y = f(x).
+
+In the following example we demonstrate how a figure and axes can be created using **plt.figure** and **plt.axes** respectively. Once we have created an axes, we can use the **ax.plot** (or the **plt.plot**) function to plot some data. Since we want to create a single figure with multiple lines, we can simply call the **plt.plot** function multiple times. **plt.plot** function takes additional arguments (that are optional) that can be used to specify the **color**, **label**, **linestyle** and others. If no color is specified, Matplotlib will automatically cycle through a set of default colors for multiple lines. Matplotlib does a decent job of choosing default axes limits for your plot, but sometimes it’s nice to have finer control. The most basic way to adjust axis limits is to use the **plt.xlim()** and **plt.ylim()** methods. We can also set the title and axis label using **plt.title**, **plt.xlabel**, **plt.ylabel**. And finally, when multiple lines are being shown within a single axes, it can be useful to create a plot legend that labels each line type. It is easiest to specify the label of each line using the **label** keyword of the **plot** function and then call **plt.legend**.
+
+```py
+# We can use the plt.style directive to choose appropriate
+# aesthetic styles for our figures
+plt.style.use('seaborn-whitegrid') 
+
+fig = plt.figure(dpi=150)
+ax = plt.axes()
+
+plt.plot(x, np.sin(x), color='red', label='sin(x)')
+plt.plot(x, np.cos(x), color='green', linestyle='dotted', label='cos(x)')
+
+plt.xlim([-2, 12])
+plt.ylim([-1.25, 1.25])
+
+plt.title('The sine and the cosine function')
+plt.xlabel('x')
+plt.ylabel('y')
+
+plt.legend()
+```
+
+![image3](./images/image3.png)
+
+# How to make simple scatter plots?
+
