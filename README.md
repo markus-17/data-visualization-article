@@ -219,6 +219,8 @@ For the following examples we will be using the **Heart Disease UCI** dataset. T
 kaggle datasets download --unzip -d ronitf/heart-disease-uci
 ```
 
+> **Note!** Some of the following examples make use of the **with** statement. In **python** the **with** statement is a useful tool that is handy when you have two related operations which you would like to execute as a pair. In our examples, we use the **with** statement to change the **sns** style and then after the **with block** is executed the styles are reverted to what they were before (the **with** statement is sometimes referred to as a **context manager**).
+
 ## KDE plots
 
 A **kernel density estimate (KDE)** plot is a method for visualizing the distribution of observations in a dataset, analogous to a histogram. **KDE** represents the data using a continuous probability density curve in one or more dimensions.
