@@ -11,6 +11,7 @@
     * **jointplot**
     * **boxplot**
     * **violinplot**
+    * **lmplot**
 
 # What is matplotlib?
 
@@ -289,4 +290,16 @@ sns.violinplot(x='target', y='age', data=df)
 ```
 
 ![image14](./images/image14.png)
+
+## lmplot
+
+The last type of plot that we will show a example of is **lmplot**.
+
+Although this plot might look a little bit scarry, **lmplot** just plots data and regression model fits across a FacetGrid.
+
+```py
+sns.lmplot(data=df, x='age', y='chol', hue='target', height=7, aspect=1)
+```
+
+![image15](./images/image15.png)
 
