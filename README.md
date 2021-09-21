@@ -8,7 +8,7 @@
 * Histograms
 * Why you might also want to learn **seaborn**
     * **KDE** plots
-
+    * **jointplot**
 
 # What is matplotlib?
 
@@ -244,4 +244,21 @@ with sns.axes_style('darkgrid'):
 ```
 
 ![image10](./images/image10.png)
+
+## jointplot
+
+We can see the joint distribution and the marginal distributions together using **sns.jointplot**.
+
+In the following example the first plot has the **kind** argument set to **kde** and the second plot has the **kind** argument set to **hex**.
+
+```py
+with sns.axes_style('darkgrid'):
+    sns.jointplot(data=df, x='age', y='trestbps', kind='kde', height=7)
+
+with sns.axes_style('white'):
+    sns.jointplot(data=df, x='age', y='trestbps', kind='hex', height=7)
+```
+
+![image11](./images/image11.png)
+![image12](./images/image12.png)
 
