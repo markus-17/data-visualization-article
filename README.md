@@ -7,6 +7,7 @@
 * Contour plots
 * Histograms
 * Why you might also want to learn **seaborn**
+    * **KDE** plots
 
 
 # What is matplotlib?
@@ -208,3 +209,39 @@ cb.set_label('counts in bin')
 **Matplotlib** has proven to be an incredibly useful and popular visualization tool, but even avid users will admit it often leaves much to be desired. An answer to this problem is **Seaborn**. **Seaborn** provides an API on top of **Matplotlib** that offers sane choices for plot style and color defaults, defines simple high-level functions for common statistical plot types, and integrates with the functionality provided by Pandas DataFrames.
 
 **Seaborn** also provides straightforward ways to make violinplots, boxplots and others. 
+
+For the following examples we will be using the **Heart Disease UCI** dataset. This dataset can be downloaded using the following command
+
+```bash
+kaggle datasets download --unzip -d ronitf/heart-disease-uci
+```
+
+## KDE plots
+
+A **kernel density estimate (KDE)** plot is a method for visualizing the distribution of observations in a dataset, analagous to a histogram. **KDE** represents the data using a continuous probability density curve in one or more dimensions.
+
+```py
+import seaborn as sns
+import pandas as pd
+
+df = pd.read_csv('heart.csv')
+
+with sns.axes_style('whitegrid'):
+    plt.figure(dpi=150)
+    sns.kdeplot(df.loc[ df['target'] == 0, 'age' ], shade=True, label='No Heart Disease')
+    sns.kdeplot(df.loc[ df['target'] == 1, 'age' ], shade=True, label='Heart Disease')
+    plt.legend()
+```
+
+![image9](./images/image9.png)
+
+We can also pass 2 columns to the **kdeplot** and we get a two-dimensional visualization of the data.
+
+```py
+with sns.axes_style('darkgrid'):
+    plt.figure(dpi=150)
+    sns.kdeplot(data=df, x='age', y='trestbps')
+```
+
+![image10](./images/image10.png)
+
