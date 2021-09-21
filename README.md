@@ -10,6 +10,7 @@
     * **KDE** plots
     * **jointplot**
     * **boxplot**
+    * **violinplot**
 
 # What is matplotlib?
 
@@ -275,4 +276,17 @@ sns.boxplot(x='target', y='age', data=df)
 ```
 
 ![image13](./images/image13.png)
+
+## violinplot
+
+Another nice way to compare distributions is by using a **violinplot**. It is a combination of boxplot and kernel density estimate. It shows the distribution of quantitative data across several levels of one (or more) categorical variables such that those distributions can be compared. Unlike a box plot, in which all of the plot components correspond to actual data points, the violin plot features a kernel density estimation of the underlying distribution.
+
+The same example as the above, the only difference is that we use **violinplot** instead of **boxplot**.
+
+```py
+plt.figure(dpi=150)
+sns.violinplot(x='target', y='age', data=df)
+```
+
+![image14](./images/image14.png)
 
