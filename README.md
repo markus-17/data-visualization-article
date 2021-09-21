@@ -9,6 +9,7 @@
 * Why you might also want to learn **seaborn**
     * **KDE** plots
     * **jointplot**
+    * **boxplot**
 
 # What is matplotlib?
 
@@ -218,7 +219,7 @@ kaggle datasets download --unzip -d ronitf/heart-disease-uci
 
 ## KDE plots
 
-A **kernel density estimate (KDE)** plot is a method for visualizing the distribution of observations in a dataset, analagous to a histogram. **KDE** represents the data using a continuous probability density curve in one or more dimensions.
+A **kernel density estimate (KDE)** plot is a method for visualizing the distribution of observations in a dataset, analogous to a histogram. **KDE** represents the data using a continuous probability density curve in one or more dimensions.
 
 ```py
 import seaborn as sns
@@ -261,4 +262,17 @@ with sns.axes_style('white'):
 
 ![image11](./images/image11.png)
 ![image12](./images/image12.png)
+
+## boxplot
+
+A **box plot** shows the distribution of quantitative data in a way that facilitates comparisons between variables or across levels of a categorical variable. The box shows the quartiles of the dataset while the whiskers extend to show the rest of the distribution, except for points that are determined to be “outliers” using a method that is a function of the inter-quartile range.
+
+The following example draws a vertical box plot grouped by a categorical variable.
+
+```py
+plt.figure(dpi=150)
+sns.boxplot(x='target', y='age', data=df)
+```
+
+![image13](./images/image13.png)
 
